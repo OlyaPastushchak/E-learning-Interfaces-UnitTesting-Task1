@@ -1,44 +1,41 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using E_learning_task_4_interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace E_learning_task_4_interfaces.Tests
 {
     [TestClass()]
     public class UtilsTests
     {
-        [TestMethod()]
+        private TestContext testContext;
+
+        public TestContext TestContext { get => testContext; set => testContext = value; }
+
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV",
+                   "|DataDirectory|\\GcdDataTests.csv", "GcdDataTests#csv", DataAccessMethod.Sequential),
+           DeploymentItem("TestsData\\GcdDataTests.csv"), TestMethod]
         public void GcdTest()
         {
-            Assert.Fail();
+            int a = Int32.Parse(TestContext.DataRow["a"].ToString());
+            int b = Int32.Parse(TestContext.DataRow["b"].ToString());
+            int result = Int32.Parse(TestContext.DataRow["result"].ToString());
+
+            int actual = Utils.Gcd(a, b);
+
+            Assert.AreEqual(result, actual);
         }
 
-        [TestMethod()]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV",
+                    "|DataDirectory|\\LcmDataTests.csv", "LcmDataTests#csv", DataAccessMethod.Sequential),
+            DeploymentItem("TestsData\\LcmDataTests.csv"), TestMethod]
         public void LcmTest()
         {
-            Assert.Fail();
-        }
+            int a = Int32.Parse(TestContext.DataRow["a"].ToString());
+            int b = Int32.Parse(TestContext.DataRow["b"].ToString());
+            int result = Int32.Parse(TestContext.DataRow["result"].ToString());
 
-        [TestMethod()]
-        public void InputArrayLengthTest()
-        {
-            Assert.Fail();
-        }
+            int actual = Utils.Lcm(a, b);
 
-        [TestMethod()]
-        public void CreateIntegerArrayTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void CreateRationalArrayTest()
-        {
-            Assert.Fail();
+            Assert.AreEqual(result, actual);
         }
     }
 }

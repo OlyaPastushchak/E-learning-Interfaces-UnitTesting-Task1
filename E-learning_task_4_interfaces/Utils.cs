@@ -12,7 +12,7 @@ namespace E_learning_task_4_interfaces
             {
                 return Math.Abs(a);
             }
-            return Gcd(b, a % b);
+            return a== 0 ? 1 : Gcd(b, a % b);
         }
 
         public static int Lcm(int a, int b)
