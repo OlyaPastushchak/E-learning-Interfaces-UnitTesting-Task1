@@ -162,7 +162,7 @@ namespace E_learning_task_4_interfaces
 
         public object Clone()
         {
-            throw new NotImplementedException();
+            return new RationalNumber(this.Numerator, this.Denominator);
         }
     }
 }

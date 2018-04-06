@@ -103,7 +103,7 @@ namespace E_learning_task_4_interfaces
 
         public object Clone()
         {
-            throw new NotImplementedException();
+            return new IntegerNumber(this.Number);
         }
     }
 }
