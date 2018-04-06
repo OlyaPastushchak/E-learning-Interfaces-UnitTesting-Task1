@@ -63,14 +63,12 @@ namespace E_learning_task_4_interfaces
             return result;
         }
 
-        //asc
-        public static void SortingAsc(INumber[] arr)
+        public static void SortAscending(INumber[] arr)
         {
             Array.Sort(arr, delegate (INumber left, INumber right) { return left.CompareTo(right); });
         }
 
-        //desc
-        public static void SortingDesc(INumber[] arr)
+        public static void SortDescending(INumber[] arr)
         {
             Array.Sort(arr, delegate (INumber left, INumber right) { return right.CompareTo(left); });
         }

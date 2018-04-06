@@ -10,11 +10,13 @@ namespace E_learning_task_4_interfaces
             try
             {
                 INumber[] integerArray = Utils.CreateIntegerArray();
+                Task.SortDescending(integerArray);
                 var integerSum = Task.Sum(integerArray);
                 var integerMultiplying = Task.Multiplying(integerArray);
                 var integerAvgNumber = Task.AvgNumber(integerArray);
 
                 INumber[] rationalArray = Utils.CreateRationalArray();
+                Task.SortAscending(rationalArray);
                 var rationalSum = Task.Sum(rationalArray);
                 var rationalMultiplying = Task.Multiplying(rationalArray);
                 var rationalAvgNumber = Task.AvgNumber(rationalArray);
