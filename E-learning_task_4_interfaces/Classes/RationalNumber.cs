@@ -3,7 +3,7 @@ using E_learning_task_4_interfaces.Interfaces;
 
 namespace E_learning_task_4_interfaces
 {
-    class RationalNumber : INumber, IInputOuptput
+    public class RationalNumber : INumber, IInputOuptput
     {
         public int Numerator { get; private set; }
         private int denominator;
@@ -53,7 +53,7 @@ namespace E_learning_task_4_interfaces
                 this.Numerator /= gcd;
                 this.Denominator /= gcd;
             }
-        }             
+        }
 
         public static RationalNumber operator /(RationalNumber left, int right)
         {
@@ -158,7 +158,7 @@ namespace E_learning_task_4_interfaces
             }
 
             return 0;
-        }       
+        }
 
         public object Clone()
         {
