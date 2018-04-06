@@ -5,7 +5,7 @@ Homework Interfaces
 
 ## Завдання №1 
 
-![](https://github.com/andrewDubyk/E-learning-Classes-UnitTesting-Task8/blob/master/E-learning_Classes_Task8/task8.png)
+![](https://github.com/andrewDubyk/E-learning-Interfaces-UnitTesting-Task1/tree/master/E-learning_task_4_interfaces/docs/Interfaces_Task_1.png)
 
 ## Команда
 
