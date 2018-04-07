@@ -4,8 +4,7 @@ using E_learning_task_4_interfaces.Interfaces;
 namespace E_learning_task_4_interfaces
 {
     public static class Task
-    {
-        
+    {      
         public static INumber[] CloneArray(INumber[] arr)
         {
             INumber[] cloned = new INumber[arr.Length];

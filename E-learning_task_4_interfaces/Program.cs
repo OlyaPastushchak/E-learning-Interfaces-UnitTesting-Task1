@@ -15,7 +15,7 @@ namespace E_learning_task_4_interfaces
                 IntegerNumber integerSum = Task.Sum(integerArrayCopy) as IntegerNumber;
                 IntegerNumber integerMultiplying = Task.Multiplying(integerArrayCopy) as IntegerNumber;
                 IntegerNumber integerAvgNumber = Task.AvgNumber(integerArrayCopy) as IntegerNumber;
-                Utils.MultiFormatOutput(integerSum, integerMultiplying, integerAvgNumber);
+                Utils.MultiParamsFormatOutput(integerSum, integerMultiplying, integerAvgNumber);
 
                 INumber[] rationalArray = Utils.CreateArrayOfType<RationalNumber>(Utils.GetArrayLength());
                 var rationalArrayCopy = Task.CloneArray(rationalArray);
@@ -23,7 +23,7 @@ namespace E_learning_task_4_interfaces
                 RationalNumber rationalSum = Task.Sum(rationalArrayCopy) as RationalNumber;
                 RationalNumber rationalMultiplying = Task.Multiplying(rationalArrayCopy) as RationalNumber;
                 RationalNumber rationalAvgNumber = Task.AvgNumber(rationalArrayCopy) as RationalNumber;
-                Utils.MultiFormatOutput(rationalSum, rationalMultiplying, rationalAvgNumber);
+                Utils.MultiParamsFormatOutput(rationalSum, rationalMultiplying, rationalAvgNumber);
             }
             catch (ArithmeticException e)
             {

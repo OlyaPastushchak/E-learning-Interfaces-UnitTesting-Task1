@@ -6,7 +6,7 @@ namespace E_learning_task_4_interfaces
 {
     public static class Utils
     {
-        public static void MultiFormatOutput(params IInputOuptput[] arr)
+        public static void MultiParamsFormatOutput(params IInputOuptput[] arr)
         {
             foreach (var item in arr)
             {
