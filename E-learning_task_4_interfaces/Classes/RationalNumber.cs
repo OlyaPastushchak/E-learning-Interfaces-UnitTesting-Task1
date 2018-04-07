@@ -3,7 +3,7 @@ using E_learning_task_4_interfaces.Interfaces;
 
 namespace E_learning_task_4_interfaces
 {
-    public class RationalNumber : INumber, IInputOuptput
+    public class RationalNumber : INumber
     {
         public int Numerator { get; private set; }
         private int denominator;
@@ -131,7 +131,8 @@ namespace E_learning_task_4_interfaces
 
         public void FormatOutput()
         {
-            Console.WriteLine("rational number :  {0}/{1}", this.Numerator, this.Denominator);
+            this.Reducing();
+            Console.WriteLine("rational number :  {0}/{1} \n __________ ", this.Numerator, this.Denominator);
         }
 
         public void Divide(int num)

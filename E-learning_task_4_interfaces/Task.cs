@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using E_learning_task_4_interfaces.Interfaces;
 
 namespace E_learning_task_4_interfaces
 {
     public static class Task
     {
+        
         public static INumber[] CloneArray(INumber[] arr)
         {
             INumber[] cloned = new INumber[arr.Length];
@@ -50,11 +50,11 @@ namespace E_learning_task_4_interfaces
 
             if (Array.TrueForAll(arr, item => item is RationalNumber))
             {
-                mul = new RationalNumber();
+                mul = new RationalNumber(1,1);
             }
             else if (Array.TrueForAll(arr, item => item is IntegerNumber))
             {
-                mul = new IntegerNumber();
+                mul = new IntegerNumber(1);
             }
             else
             {
