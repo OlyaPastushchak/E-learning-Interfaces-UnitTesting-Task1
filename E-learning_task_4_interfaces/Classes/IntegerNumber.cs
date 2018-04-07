@@ -3,7 +3,7 @@ using E_learning_task_4_interfaces.Interfaces;
 
 namespace E_learning_task_4_interfaces
 {
-    class IntegerNumber : INumber, IInputOuptput
+    public class IntegerNumber : INumber, IInputOuptput
     {
         public int Number { get; private set; }
 
@@ -103,7 +103,7 @@ namespace E_learning_task_4_interfaces
 
         public object Clone()
         {
-            throw new NotImplementedException();
+            return new IntegerNumber(this.Number);
         }
     }
 }
