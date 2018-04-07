@@ -10,6 +10,7 @@ namespace E_learning_task_4_interfaces
             try
             {
                 INumber[] integerArray = Utils.CreateIntegerArray();
+                var cloned = Task.CloneArray(integerArray);
                 var integerSum = Task.Sum(integerArray);
                 var integerMultiplying = Task.Multiplying(integerArray);
                 var integerAvgNumber = Task.AvgNumber(integerArray);

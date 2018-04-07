@@ -1,10 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 using E_learning_task_4_interfaces.Interfaces;
 
 namespace E_learning_task_4_interfaces
 {
     public static class Task
     {
+        public static INumber[] CloneArray(INumber[] arr)
+        {
+            INumber[] cloned = new INumber[arr.Length];
+            int index = 0;
+            Array.ForEach(arr, delegate (INumber item)
+            {
+                cloned[index] = item.Clone() as INumber;
+                index++;
+            });
+
+            return cloned;
+        }
+
         public static INumber Sum(INumber[] arr)
         {
             INumber sum = null;
