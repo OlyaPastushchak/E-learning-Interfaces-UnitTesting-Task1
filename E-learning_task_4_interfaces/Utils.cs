@@ -6,13 +6,21 @@ namespace E_learning_task_4_interfaces
 {
     public static class Utils
     {
+        public static void MultiParamsFormatOutput(params IInputOuptput[] arr)
+        {
+            foreach (var item in arr)
+            {
+                item.FormatOutput();
+            }
+        }
+
         public static int Gcd(int a, int b)
         {
             if (b == 0)
             {
                 return Math.Abs(a);
             }
-            return Gcd(b, a % b);
+            return a == 0 ? 1 : Gcd(b, a % b);
         }
 
         public static int Lcm(int a, int b)
@@ -20,7 +28,7 @@ namespace E_learning_task_4_interfaces
             return Math.Abs(a * b) / Gcd(a, b);
         }
 
-        public static int InputArrayLength()
+        public static int GetArrayLength()
         {
             Console.WriteLine(" eneter array size :");
             if (!Int32.TryParse(Console.ReadLine(), NumberStyles.AllowLeadingWhite, null, out int length))
@@ -31,30 +39,16 @@ namespace E_learning_task_4_interfaces
             return length;
         }
 
-        public static INumber[] CreateIntegerArray()
+        public static INumber[] CreateArrayOfType<T>(int length) where T : class, INumber , new()
         {
-            int length = InputArrayLength();
-            IntegerNumber[] integerArray = new IntegerNumber[length];
-            for (int i = 0; i < integerArray.Length; i++)
+            T[] array = new T[length];
+            for (int i = 0; i < array.Length; i++)
             {
-                integerArray[i] = new IntegerNumber();
-                integerArray[i].FormatInput();
+                array[i] = new T();
+                array[i].FormatInput();
             }
 
-            return integerArray;
-        }
-
-        public static INumber[] CreateRationalArray()
-        {
-            int length = InputArrayLength();
-            RationalNumber[] rationalArray = new RationalNumber[length];
-            for (int i = 0; i < rationalArray.Length; i++)
-            {
-                rationalArray[i] = new RationalNumber();
-                rationalArray[i].FormatInput();
-            }
-
-            return rationalArray;
-        }
+            return array;
+        }       
     }
 }

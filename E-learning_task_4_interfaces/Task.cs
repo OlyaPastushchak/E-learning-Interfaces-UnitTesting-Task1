@@ -4,7 +4,20 @@ using E_learning_task_4_interfaces.Interfaces;
 namespace E_learning_task_4_interfaces
 {
     public static class Task
-    {
+    {      
+        public static INumber[] CloneArray(INumber[] arr)
+        {
+            INumber[] cloned = new INumber[arr.Length];
+            int index = 0;
+            Array.ForEach(arr, delegate (INumber item)
+            {
+                cloned[index] = item.Clone() as INumber;
+                index++;
+            });
+
+            return cloned;
+        }
+
         public static INumber Sum(INumber[] arr)
         {
             INumber sum = null;
@@ -36,11 +49,11 @@ namespace E_learning_task_4_interfaces
 
             if (Array.TrueForAll(arr, item => item is RationalNumber))
             {
-                mul = new RationalNumber();
+                mul = new RationalNumber(1,1);
             }
             else if (Array.TrueForAll(arr, item => item is IntegerNumber))
             {
-                mul = new IntegerNumber();
+                mul = new IntegerNumber(1);
             }
             else
             {
@@ -51,7 +64,6 @@ namespace E_learning_task_4_interfaces
             {
                 mul = mul.Multiply(item);
             }
-
             return mul;
         }
 
@@ -63,14 +75,12 @@ namespace E_learning_task_4_interfaces
             return result;
         }
 
-        //asc
-        public static void SortingAsc(INumber[] arr)
+        public static void SortAscending(INumber[] arr)
         {
             Array.Sort(arr, delegate (INumber left, INumber right) { return left.CompareTo(right); });
         }
 
-        //desc
-        public static void SortingDesc(INumber[] arr)
+        public static void SortDescending(INumber[] arr)
         {
             Array.Sort(arr, delegate (INumber left, INumber right) { return right.CompareTo(left); });
         }

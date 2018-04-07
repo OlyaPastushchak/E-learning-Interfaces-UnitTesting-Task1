@@ -3,7 +3,7 @@ using E_learning_task_4_interfaces.Interfaces;
 
 namespace E_learning_task_4_interfaces
 {
-    class RationalNumber : INumber, IInputOuptput
+    public class RationalNumber : INumber
     {
         public int Numerator { get; private set; }
         private int denominator;
@@ -34,7 +34,7 @@ namespace E_learning_task_4_interfaces
         {
             if (!IsProperFraction(numerator, denominator))
             {
-                throw new ArgumentException("fracntion is improper : numerator >= denominator or denominator == 0 ");
+                throw new ArgumentException("fracntion is improper : denominator == 0 ");
             }
             this.Numerator = numerator;
             this.Denominator = denominator;
@@ -42,7 +42,7 @@ namespace E_learning_task_4_interfaces
 
         public static bool IsProperFraction(int numerator, int denominator)
         {
-            return Math.Abs(numerator) <= Math.Abs(denominator) && denominator != 0;
+            return denominator != 0;
         }
 
         public void Reducing()
@@ -53,7 +53,7 @@ namespace E_learning_task_4_interfaces
                 this.Numerator /= gcd;
                 this.Denominator /= gcd;
             }
-        }             
+        }
 
         public static RationalNumber operator /(RationalNumber left, int right)
         {
@@ -131,7 +131,8 @@ namespace E_learning_task_4_interfaces
 
         public void FormatOutput()
         {
-            Console.WriteLine("rational number :  {0}/{1}", this.Numerator, this.Denominator);
+            this.Reducing();
+            Console.WriteLine("rational number :  {0}/{1} \n __________ ", this.Numerator, this.Denominator);
         }
 
         public void Divide(int num)
@@ -158,11 +159,11 @@ namespace E_learning_task_4_interfaces
             }
 
             return 0;
-        }       
+        }
 
         public object Clone()
         {
-            throw new NotImplementedException();
+            return new RationalNumber(this.Numerator, this.Denominator);
         }
     }
 }

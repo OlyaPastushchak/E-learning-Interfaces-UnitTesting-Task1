@@ -9,15 +9,25 @@ namespace E_learning_task_4_interfaces
         {
             try
             {
-                INumber[] integerArray = Utils.CreateIntegerArray();
-                var integerSum = Task.Sum(integerArray);
-                var integerMultiplying = Task.Multiplying(integerArray);
-                var integerAvgNumber = Task.AvgNumber(integerArray);
+                INumber[] integerArray = Utils.CreateArrayOfType<IntegerNumber>(Utils.GetArrayLength());
+                var integerArrayCopy = Task.CloneArray(integerArray);
+                Task.SortAscending(integerArrayCopy);
+                IntegerNumber integerSum = Task.Sum(integerArrayCopy) as IntegerNumber;
+                IntegerNumber integerMultiplying = Task.Multiplying(integerArrayCopy) as IntegerNumber;
+                IntegerNumber integerAvgNumber = Task.AvgNumber(integerArrayCopy) as IntegerNumber;
+                Utils.MultiParamsFormatOutput(integerSum, integerMultiplying, integerAvgNumber);
 
-                INumber[] rationalArray = Utils.CreateRationalArray();
-                var rationalSum = Task.Sum(rationalArray);
-                var rationalMultiplying = Task.Multiplying(rationalArray);
-                var rationalAvgNumber = Task.AvgNumber(rationalArray);
+                INumber[] rationalArray = Utils.CreateArrayOfType<RationalNumber>(Utils.GetArrayLength());
+                var rationalArrayCopy = Task.CloneArray(rationalArray);
+                Task.SortDescending(rationalArrayCopy);
+                RationalNumber rationalSum = Task.Sum(rationalArrayCopy) as RationalNumber;
+                RationalNumber rationalMultiplying = Task.Multiplying(rationalArrayCopy) as RationalNumber;
+                RationalNumber rationalAvgNumber = Task.AvgNumber(rationalArrayCopy) as RationalNumber;
+                Utils.MultiParamsFormatOutput(rationalSum, rationalMultiplying, rationalAvgNumber);
+            }
+            catch (ArithmeticException e)
+            {
+                Console.WriteLine(e.Message);
             }
             catch (InvalidCastException e)
             {
@@ -32,6 +42,8 @@ namespace E_learning_task_4_interfaces
             {
                 Console.WriteLine("Something bad happend : " + e.Message);
             }
+
+            Console.ReadKey();
         }
     }
 }
