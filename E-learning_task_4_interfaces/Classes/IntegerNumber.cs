@@ -3,7 +3,7 @@ using E_learning_task_4_interfaces.Interfaces;
 
 namespace E_learning_task_4_interfaces
 {
-    public class IntegerNumber : INumber, IInputOuptput
+    public class IntegerNumber : INumber
     {
         public int Number { get; private set; }
 
@@ -74,7 +74,7 @@ namespace E_learning_task_4_interfaces
 
         public void FormatOutput()
         {
-            Console.WriteLine("your number : {0}", this.Number);
+            Console.WriteLine("your number : {0} \n __________ ", this.Number);
         }
 
         public void Divide(int num)

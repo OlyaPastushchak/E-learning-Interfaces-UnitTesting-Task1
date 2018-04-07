@@ -2,7 +2,7 @@
 
 namespace E_learning_task_4_interfaces.Interfaces
 {
-    public interface INumber : ICloneable, IComparable<INumber>
+    public interface INumber : ICloneable, IComparable<INumber> , IInputOuptput
     {
         INumber Add(INumber obj);
         INumber Subtract(INumber obj);
