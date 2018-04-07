@@ -11,7 +11,7 @@ namespace E_learning_task_4_interfaces
             {
                 INumber[] integerArray = Utils.CreateArrayOfType<IntegerNumber>(Utils.GetArrayLength());
                 var integerArrayCopy = Task.CloneArray(integerArray);
-                Task.SortingAsc(integerArrayCopy);
+                Task.SortAscending(integerArrayCopy);
                 IntegerNumber integerSum = Task.Sum(integerArrayCopy) as IntegerNumber;
                 IntegerNumber integerMultiplying = Task.Multiplying(integerArrayCopy) as IntegerNumber;
                 IntegerNumber integerAvgNumber = Task.AvgNumber(integerArrayCopy) as IntegerNumber;
@@ -19,7 +19,7 @@ namespace E_learning_task_4_interfaces
 
                 INumber[] rationalArray = Utils.CreateArrayOfType<RationalNumber>(Utils.GetArrayLength());
                 var rationalArrayCopy = Task.CloneArray(rationalArray);
-                Task.SortingDesc(rationalArrayCopy);
+                Task.SortDescending(rationalArrayCopy);
                 RationalNumber rationalSum = Task.Sum(rationalArrayCopy) as RationalNumber;
                 RationalNumber rationalMultiplying = Task.Multiplying(rationalArrayCopy) as RationalNumber;
                 RationalNumber rationalAvgNumber = Task.AvgNumber(rationalArrayCopy) as RationalNumber;

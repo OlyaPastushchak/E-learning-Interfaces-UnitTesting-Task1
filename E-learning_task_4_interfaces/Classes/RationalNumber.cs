@@ -34,7 +34,7 @@ namespace E_learning_task_4_interfaces
         {
             if (!IsProperFraction(numerator, denominator))
             {
-                throw new ArgumentException("fracntion is improper : numerator >= denominator or denominator == 0 ");
+                throw new ArgumentException("fracntion is improper : denominator == 0 ");
             }
             this.Numerator = numerator;
             this.Denominator = denominator;
@@ -42,7 +42,7 @@ namespace E_learning_task_4_interfaces
 
         public static bool IsProperFraction(int numerator, int denominator)
         {
-            return Math.Abs(numerator) <= Math.Abs(denominator) && denominator != 0;
+            return denominator != 0;
         }
 
         public void Reducing()
