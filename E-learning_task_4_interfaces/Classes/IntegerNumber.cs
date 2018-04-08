@@ -7,10 +7,7 @@ namespace E_learning_task_4_interfaces
     {
         public int Number { get; private set; }
 
-        public IntegerNumber()
-        {
-            this.Number = 0;
-        }
+        public IntegerNumber() : this(0) { }
 
         public IntegerNumber(int number)
         {
@@ -34,6 +31,10 @@ namespace E_learning_task_4_interfaces
             if (right == null)
             {
                 throw new InvalidCastException();
+            }
+            if (right.Number == 0)
+            {
+                throw new DivideByZeroException();
             }
 
             return new IntegerNumber(this.Number / right.Number);
@@ -79,6 +80,10 @@ namespace E_learning_task_4_interfaces
 
         public void Divide(int num)
         {
+            if (num == 0)
+            {
+                throw new DivideByZeroException();
+            }
             this.Number /= num;
         }
 

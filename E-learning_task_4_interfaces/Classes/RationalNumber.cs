@@ -24,25 +24,12 @@ namespace E_learning_task_4_interfaces
             }
         }
 
-        public RationalNumber()
-        {
-            this.Numerator = 0;
-            this.Denominator = 1;
-        }
+        public RationalNumber() : this(0, 1) { }
 
-        public RationalNumber(int numerator, int denominator) : this()
+        public RationalNumber(int numerator, int denominator)
         {
-            if (!IsProperFraction(numerator, denominator))
-            {
-                throw new ArgumentException("fracntion is improper : denominator == 0 ");
-            }
             this.Numerator = numerator;
             this.Denominator = denominator;
-        }
-
-        public static bool IsProperFraction(int numerator, int denominator)
-        {
-            return denominator != 0;
         }
 
         public void Reducing()
