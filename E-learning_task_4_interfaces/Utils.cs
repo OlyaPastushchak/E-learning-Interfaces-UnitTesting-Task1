@@ -15,12 +15,17 @@ namespace E_learning_task_4_interfaces
         }
 
         public static int Gcd(int a, int b)
-        {
-            if (b == 0)
+        {           
+            a = Math.Abs(a);
+            b = Math.Abs(b);
+
+            while (b != 0)
             {
-                return Math.Abs(a);
+                int tmp = a % b;
+                a = b;
+                b = tmp;
             }
-            return a == 0 ? 1 : Gcd(b, a % b);
+            return a;
         }
 
         public static int Lcm(int a, int b)
@@ -28,10 +33,10 @@ namespace E_learning_task_4_interfaces
             return Math.Abs(a * b) / Gcd(a, b);
         }
 
-        public static int GetArrayLength()
+        public static uint GetArrayLength()
         {
             Console.WriteLine(" eneter array size :");
-            if (!Int32.TryParse(Console.ReadLine(), NumberStyles.AllowLeadingWhite, null, out int length))
+            if (!UInt32.TryParse(Console.ReadLine(), NumberStyles.AllowLeadingWhite, null, out UInt32 length))
             {
                 throw new FormatException("you enterd number in a wrong romat : it is not a integer number ... ");
             }
@@ -39,16 +44,16 @@ namespace E_learning_task_4_interfaces
             return length;
         }
 
-        public static INumber[] CreateArrayOfType<T>(int length) where T : class, INumber , new()
+        public static INumber[] CreateArrayOfType<T>(uint length) where T : class, INumber, new()
         {
             T[] array = new T[length];
-            for (int i = 0; i < array.Length; i++)
+            for (uint i = 0; i < array.Length; i++)
             {
                 array[i] = new T();
                 array[i].FormatInput();
             }
 
             return array;
-        }       
+        }
     }
 }

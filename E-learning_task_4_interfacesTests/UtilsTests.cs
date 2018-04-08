@@ -9,7 +9,7 @@ namespace E_learning_task_4_interfaces.Tests
         private TestContext testContext;
 
         public TestContext TestContext { get => testContext; set => testContext = value; }
-
+                
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV",
                    "|DataDirectory|\\GcdDataTests.csv", "GcdDataTests#csv", DataAccessMethod.Sequential),
            DeploymentItem("TestsData\\GcdDataTests.csv"), TestMethod]
